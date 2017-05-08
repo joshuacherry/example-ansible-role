@@ -1,0 +1,25 @@
+---
+# Chain handlers to support multiple process supervisors. A task simply needs
+# to notify 'restart Service', which will trigger the supervisor-specific
+# actions.
+- name: restart Service
+  debug:
+    msg: restarting Service using {{ example_process_control }}
+  changed_when: true
+  notify:
+    - restart Service (supervisor)
+    - restart Service (systemd)
+
+- name: restart Service (supervisor)
+  supervisorctl:
+    name: nginx
+    state: restarted
+    enabled: yes
+  when: example_process_control == 'supervisor'
+
+- name: restart Service (systemd)
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes
+  when: example_process_control == 'systemd'
