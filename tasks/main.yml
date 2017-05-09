@@ -9,9 +9,11 @@
   when: ansible_os_family == "RedHat"
   notify:
     - restart Service
+    - enable Service
 
 - name: ensure nginx is at the latest version if OS family is Debian
   apt: name=nginx state=latest
   when: ansible_os_family == "Debian"
   notify:
     - restart Service
+    - enable Service

@@ -14,12 +14,32 @@
   supervisorctl:
     name: nginx
     state: restarted
-    enabled: yes
   when: example_process_control == 'supervisor'
 
 - name: restart Service (systemd)
   service:
     name: nginx
     state: restarted
-    enabled: yes
+  when: example_process_control == 'systemd'
+
+- name: enable Service
+  debug:
+    msg: enabling service using {{ example_process_control }}
+  changed_when: true
+  notify:
+    - enable Service (supervisor)
+    - enable Service (systemd)
+
+- name: enable Service (supervisor)
+  command: supervisorctl update
+  become: true
+  when: example_process_control == 'supervisor'
+
+- name: enable Service (systemd)
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  with_items:
+    - "nginx.service"
   when: example_process_control == 'systemd'
