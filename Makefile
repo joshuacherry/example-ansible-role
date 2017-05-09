@@ -1,6 +1,5 @@
 BOXES := $(notdir $(wildcard docker/*))
 
-PROCESS_CONTROL ?= systemd
 PLAYBOOK        ?= example
 
 define USAGE
@@ -22,7 +21,6 @@ machines:
 
 variables:
 
-  PROCESS_CONTROL   Choose from 'supervisor' or 'systemd'. Default: 'systemd'.
   PLAYBOOK          Choose Playbook to test. Default: 'example'.
 endef
 
@@ -43,7 +41,7 @@ help:
 
 test:
 ifeq (true,$(call is_machine_target))
-	./scripts/ci.sh $(firstword $(MAKECMDGOALS)) $(PROCESS_CONTROL) $(PLAYBOOK)
+	./scripts/ci.sh $(firstword $(MAKECMDGOALS)) $(PLAYBOOK)
 else
 	$(error `test` requires a machine name, see `make help`)
 endif

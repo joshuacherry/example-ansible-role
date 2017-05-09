@@ -8,8 +8,7 @@ green='\033[0;32m'
 neutral='\033[0m'
 
 declare -r OS=${1:-${OS}}
-declare -r PROCESS_CONTROL=${2:-${PROCESS_CONTROL}}
-declare -r PLAYBOOK=${3:-${PLAYBOOK}}
+declare -r PLAYBOOK=${2:-${PLAYBOOK}}
 declare -r WORKSPACE=${WORKSPACE:-/tmp/example-ansible-inspec}
 
 function cleanup() {
@@ -37,26 +36,20 @@ function main() {
   docker exec -t "${container}" env ANSIBLE_FORCE_COLOR=1 ansible-playbook \
               -i "${WORKSPACE}/tests/inventory" \
               --syntax-check \
-              -v \
-              --extra-vars="example_process_control=${PROCESS_CONTROL}" \
-              "${WORKSPACE}/tests/${PLAYBOOK}.yml"
+              -v "${WORKSPACE}/tests/${PLAYBOOK}.yml"
 
   # Run Playbook.
   docker exec -t "${container}" env ANSIBLE_FORCE_COLOR=1 ansible-playbook \
               -i "${WORKSPACE}/tests/inventory" \
               -c local \
-              -v \
-              --extra-vars="example_process_control=${PROCESS_CONTROL}" \
-              "${WORKSPACE}/tests/${PLAYBOOK}.yml"
+              -v "${WORKSPACE}/tests/${PLAYBOOK}.yml"
 
   # Run Ansible playbook again (idempotence test).
   idempotence=$(mktemp)
   docker exec -t "${container}" env ANSIBLE_FORCE_COLOR=1 ansible-playbook \
               -i "${WORKSPACE}/tests/inventory" \
               -c local \
-              -v \
-              --extra-vars="example_process_control=${PROCESS_CONTROL}" \
-              "${WORKSPACE}/tests/${PLAYBOOK}.yml" | tee -a $idempotence
+              -v "${WORKSPACE}/tests/${PLAYBOOK}.yml" | tee -a $idempotence
   tail $idempotence \
   | grep -q 'changed=0.*failed=0' \
   && (printf ${green}'Idempotence test: pass'${neutral}"\n") \

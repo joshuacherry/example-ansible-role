@@ -1,45 +1,11 @@
 ---
-# Chain handlers to support multiple process supervisors. A task simply needs
-# to notify 'restart Service', which will trigger the supervisor-specific
-# actions.
 - name: restart Service
-  debug:
-    msg: restarting Service using {{ example_process_control }}
-  changed_when: true
-  notify:
-    - restart Service (supervisor)
-    - restart Service (systemd)
-
-- name: restart Service (supervisor)
-  supervisorctl:
-    name: nginx
-    state: restarted
-  when: example_process_control == 'supervisor'
-
-- name: restart Service (systemd)
   service:
     name: nginx
     state: restarted
-  when: example_process_control == 'systemd'
 
 - name: enable Service
-  debug:
-    msg: enabling service using {{ example_process_control }}
-  changed_when: true
-  notify:
-    - enable Service (supervisor)
-    - enable Service (systemd)
-
-- name: enable Service (supervisor)
-  command: supervisorctl update
-  become: true
-  when: example_process_control == 'supervisor'
-
-- name: enable Service (systemd)
   service:
-    name: "{{ item }}"
+    name: nginx
     state: started
     enabled: true
-  with_items:
-    - "nginx.service"
-  when: example_process_control == 'systemd'

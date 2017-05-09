@@ -8,11 +8,10 @@ env:
     - DOCKER_VERSION=17.03.1~ce-0~ubuntu-trusty
     - DOCKER_COMPOSE_VERSION=1.13.0
   matrix:
-    - OS=jessie64 PLAYBOOK=example PROCESS_CONTROL=systemd
-    - OS=jessie64 PLAYBOOK=example PROCESS_CONTROL=supervisor
-    - OS=trusty64 PLAYBOOK=example PROCESS_CONTROL=supervisor
-    - OS=xenial64 PLAYBOOK=example PROCESS_CONTROL=systemd
-    - OS=centos7  PLAYBOOK=example PROCESS_CONTROL=systemd
+    - OS=jessie64 PLAYBOOK=example
+    - OS=trusty64 PLAYBOOK=example
+    - OS=xenial64 PLAYBOOK=example
+    - OS=centos7  PLAYBOOK=example
 
 before_install:
   - chmod +x ./scripts/install-docker.sh
