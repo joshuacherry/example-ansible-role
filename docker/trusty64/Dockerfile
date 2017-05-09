@@ -12,7 +12,6 @@ RUN apt-get update -y \
     && apt-get --no-install-recommends install -y \
       ansible \
       wget \
-      sudo \
     && apt-get autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
