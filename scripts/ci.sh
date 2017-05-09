@@ -62,9 +62,9 @@ function main() {
   && (printf ${green}'Idempotence test: pass'${neutral}"\n") \
   || (printf ${red}'Idempotence test: fail'${neutral}"\n" && exit 1)
 
-  # Sleep to allow Minecraft to boot.
+  # Sleep to allow Services to boot.
   # FIXME: A retry loop checking if it has launched yet would be better.
-  sleep 30
+  sleep 5
 
   # Run tests.
   docker exec -t "${container}" inspec exec "${WORKSPACE}/tests/specs/${PLAYBOOK}_spec.rb"
