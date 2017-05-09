@@ -6,6 +6,7 @@ RUN yum install -y epel-release \
     && yum install -y \
       ansible \
       wget \
+      sudo \
     && yum clean all
 
 RUN wget https://packages.chef.io/files/stable/inspec/1.23.0/el/7/inspec-1.23.0-1.el7.x86_64.rpm \

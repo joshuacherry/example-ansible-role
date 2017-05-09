@@ -15,7 +15,7 @@ env:
     - OS=centos7  PLAYBOOK=example PROCESS_CONTROL=systemd
 
 before_install:
-  - ${PWD}/scripts/install-docker.sh
+  - sudo -E ./scripts/install-docker.sh
 install: true
 script:
   - make "${OS}" test

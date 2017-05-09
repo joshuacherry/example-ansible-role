@@ -17,6 +17,7 @@ RUN apt-get update -y \
       libssl-dev \
       python-dev \
       python-pip \
+      sudo \
     && apt-get autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
