@@ -11,21 +11,11 @@ RUN apt-get update -y \
     && apt-get update -y \
     && apt-get --no-install-recommends install -y \
       ansible \
-      git \
-      net-tools \
-      ruby2.0 \
-      ruby2.0-dev \
-      make \
-      gcc \
-      libffi-dev \
-      build-essential \
-      rubygems-integration \
-      sudo \
-      tar \
+      wget \
     && apt-get autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN gem2.0 update --system
-RUN gem2.0 install rake
-RUN gem2.0 install inspec
+RUN wget https://packages.chef.io/files/stable/inspec/1.23.0/ubuntu/14.04/inspec_1.23.0-1_amd64.deb \
+    && dpkg -i inspec_1.23.0-1_amd64.deb \
+    && rm inspec_1.23.0-1_amd64.deb

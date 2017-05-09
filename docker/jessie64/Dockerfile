@@ -11,16 +11,12 @@ RUN systemctl set-default multi-user.target
 
 RUN apt-get update -y \
     && apt-get --no-install-recommends install -y \
-      gcc \
       git \
+      wget \
       libffi-dev \
       libssl-dev \
-      net-tools \
       python-dev \
       python-pip \
-      ruby \
-      sudo \
-      tar \
     && apt-get autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -31,4 +27,6 @@ RUN pip install -U setuptools
 # the old Debian package.
 RUN pip install ansible
 
-RUN gem install inspec
+RUN wget https://packages.chef.io/files/stable/inspec/1.23.0/ubuntu/14.04/inspec_1.23.0-1_amd64.deb \
+    && dpkg -i inspec_1.23.0-1_amd64.deb \
+    && rm inspec_1.23.0-1_amd64.deb

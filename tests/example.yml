@@ -2,4 +2,4 @@
 - name: wrapper playbook for testing
   hosts: all
   roles:
-    - example
+    - example.role

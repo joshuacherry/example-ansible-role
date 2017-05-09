@@ -30,13 +30,16 @@ function main() {
   # Install role.
   docker cp . "${container}:${WORKSPACE}"
 
+  docker exec -t "${container}" mkdir "${WORKSPACE}/tests/roles"
+  docker exec -t "${container}" ln -s "${WORKSPACE}/" "${WORKSPACE}/tests/roles/example.role"
+
   # Validate syntax
   docker exec -t "${container}" env ANSIBLE_FORCE_COLOR=1 ansible-playbook \
               -i "${WORKSPACE}/tests/inventory" \
               --syntax-check \
               -v \
               --extra-vars="example_process_control=${PROCESS_CONTROL}" \
-              "${WORKSPACE}/tests/${PLAYBOOK}/default.yml"
+              "${WORKSPACE}/tests/${PLAYBOOK}.yml"
 
   # Run Playbook.
   docker exec -t "${container}" env ANSIBLE_FORCE_COLOR=1 ansible-playbook \
@@ -44,15 +47,16 @@ function main() {
               -c local \
               -v \
               --extra-vars="example_process_control=${PROCESS_CONTROL}" \
-              "${WORKSPACE}/tests/${PLAYBOOK}/default.yml"
+              "${WORKSPACE}/tests/${PLAYBOOK}.yml"
 
   # Run Ansible playbook again (idempotence test).
+  idempotence=$(mktemp)
   docker exec -t "${container}" env ANSIBLE_FORCE_COLOR=1 ansible-playbook \
               -i "${WORKSPACE}/tests/inventory" \
               -c local \
               -v \
               --extra-vars="example_process_control=${PROCESS_CONTROL}" \
-              "${WORKSPACE}/tests/${PLAYBOOK}/default.yml" | tee -a $idempotence
+              "${WORKSPACE}/tests/${PLAYBOOK}.yml" | tee -a $idempotence
   tail $idempotence \
   | grep -q 'changed=0.*failed=0' \
   && (printf ${green}'Idempotence test: pass'${neutral}"\n") \
@@ -63,7 +67,7 @@ function main() {
   sleep 30
 
   # Run tests.
-  docker exec -t "${container}" rspec "${WORKSPACE}/tests/${PLAYBOOK}/spec.rb"
+  docker exec -t "${container}" inspec exec "${WORKSPACE}/tests/specs/${PLAYBOOK}_spec.rb"
 }
 
 [[ -z "${CI:-}" ]] && trap debug ERR
