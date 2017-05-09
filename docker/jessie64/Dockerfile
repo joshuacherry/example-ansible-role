@@ -15,6 +15,7 @@ RUN apt-get update -y \
       wget \
       libffi-dev \
       libssl-dev \
+      gcc \
       python-dev \
       python-pip \
     && apt-get autoremove \
