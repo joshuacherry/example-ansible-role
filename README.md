@@ -1,19 +1,16 @@
-example-ansible-inspec
-=================
+# example-ansible-inspec
+
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-inspec.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-inspec)
 
-Requirements
-------------
+## Requirements
 -   none
 
-Install
--------
+## Install
 ```
 install instructions here
 ```
 
-Features
---------
+## Features
 - something
 - Support different options on different platforms
 
@@ -25,30 +22,24 @@ Features
 
 - something 3
 
-Versioning
-----------
+## Versioning
 
 [Semantic Versioning](http://semver.org/)
 
-Role variables
---------------
+## Role variables
 
 The following variable defaults are defined in `defaults/main.yml`.
 
 `variable1`  
 Description
 
-Example Playbook
---------------
+## Example Playbook
 
-Contributing
---------------
+## Contributing
 
-Testing
--------
+## Testing
 
-License
-=======
+## License
 
-Disclaimer
-==========
+## Disclaimer
+
