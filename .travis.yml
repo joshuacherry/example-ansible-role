@@ -16,6 +16,7 @@ env:
 
 before_install:
   - chmod +x ./scripts/install-docker.sh
+  - chmod +x ./scripts/ci.sh
   - sudo -E ./scripts/install-docker.sh
 install: true
 script:

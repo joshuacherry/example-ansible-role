@@ -19,7 +19,7 @@ end
 
 # implement os dependent tests
 web_user = 'www-data'
-web_user = 'nginx' if os[:family] == 'centos'
+web_user = 'nginx' if os[:family] == 'redhat'
 
 describe user(web_user) do
   it { should exist }
