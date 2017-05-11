@@ -3,6 +3,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+my_machines={
+# 'hostname' => ['IPAddress','Memory in MB','Number of CPUs'],
+  'node1'  => ['10.1.15.10','1024','1']
+}
+
 $setupScript = <<SCRIPT
 echo provisioning docker...
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
@@ -20,21 +28,22 @@ chmod +x /usr/local/bin/docker-compose
 
 SCRIPT
 
-Vagrant.configure("2") do |config|
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "bento/ubuntu-16.04"
 
-  # create node
-  config.vm.define :vagrant do |config|
-      config.vm.box = "bento/ubuntu-16.04"
-      config.vm.hostname = "vagrant"
-      config.vm.network :private_network, ip: "10.1.15.10"
-      config.vm.provider "virtualbox" do |vb|
-        vb.memory = "1024"
-        vb.cpus = "1"
+  my_machines.each do |short_name, array|
+
+    config.vm.define short_name do |host|
+      host.vm.network 'private_network', ip: array[0]
+      host.vm.hostname = "#{short_name}"
+      host.vm.provider "virtualbox" do |vb|
+        vb.memory = "#{array[1]}"
+        vb.cpus = "#{array[2]}"
         vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
         vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
         vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
       end
-      config.vm.provision :shell, :inline => $setupScript
+      host.vm.provision :shell, :inline => $setupScript
+    end
   end
-
 end

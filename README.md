@@ -33,11 +33,11 @@ The following variable defaults are defined in `defaults/main.yml`.
 `variable1`  
 Description
 
-## Example Playbook
-
 ## Contributing
 
 ## Testing
+
+## Example Playbook
 
 ## License
 
