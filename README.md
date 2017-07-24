@@ -36,6 +36,18 @@ Description
 ## Contributing
 
 ## Testing
+This role includes a Vagrantfile used with a Docker-based test harness that approximates the Travis CI setup for integration testing. Using Vagrant allows all contributors to test on the same platform and avoid false test failures due to untested or incompatible docker versions.
+
+1. Install [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/).
+2. Run `vagrant up` from the same directory as the Vagrantfile in this repository.
+3. SSH into the VM with: `vagrant ssh`
+4. Run tests with `make`.
+
+#### Testing with Docker and inspec
+```
+make -C /vagrant xenial64 test
+```
+See `make help` for more information including a full list of available targets.
 
 ## Example Playbook
 
