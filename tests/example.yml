@@ -1,5 +1,7 @@
 ---
 - name: wrapper playbook for testing
   hosts: all
-  roles:
-    - example.role
+  
+  tasks:
+  - include_role:
+      name: role_under_test

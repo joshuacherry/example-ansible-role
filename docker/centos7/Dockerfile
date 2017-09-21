@@ -5,9 +5,10 @@ ENV TERM=xterm
 RUN yum install -y epel-release \
     && yum install -y \
       ansible \
-      wget \
     && yum clean all
 
-RUN wget https://packages.chef.io/files/stable/inspec/1.23.0/el/7/inspec-1.23.0-1.el7.x86_64.rpm \
-    && rpm -i inspec-1.23.0-1.el7.x86_64.rpm \
-    && rm inspec-1.23.0-1.el7.x86_64.rpm
+COPY chef.asc /tmp/chef.asc
+COPY chef-stable.list /etc/yum.repos.d/chef-stable.repo
+
+RUN rpm --import /tmp/chef.asc \
+    && yum install -y inspec-1.25.0-1.el7

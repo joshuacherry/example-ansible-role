@@ -12,8 +12,7 @@ add-apt-repository \
 apt-get update
 apt-get -o Dpkg::Options::="--force-confnew" install --force-yes -y docker-ce="${DOCKER_VERSION}"
 
-curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" > /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+sudo pip install docker-compose=="${DOCKER_COMPOSE_VERSION}"
 
 docker version
 
