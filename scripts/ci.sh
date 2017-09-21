@@ -9,7 +9,7 @@ neutral='\033[0m'
 
 declare -r OS=${1:-${OS}}
 declare -r PLAYBOOK=${2:-${PLAYBOOK}}
-declare -r WORKSPACE=${WORKSPACE:-/tmp/example-ansible-inspec}
+declare -r WORKSPACE=${WORKSPACE:-/tmp/ansible-inspec}
 
 function cleanup() {
   docker-compose stop "${OS}"

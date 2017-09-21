@@ -1,16 +1,21 @@
 # example-ansible-inspec
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-inspec.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-inspec)
 
 ## Requirements
--   none
+
+- none
 
 ## Install
-```
+
+```bash
 install instructions here
 ```
 
 ## Features
+
 - something
 - Support different options on different platforms
 
@@ -30,23 +35,26 @@ install instructions here
 
 The following variable defaults are defined in `defaults/main.yml`.
 
-`variable1`  
+`variable1`
 Description
 
 ## Contributing
 
 ## Testing
+
 This role includes a Vagrantfile used with a Docker-based test harness that approximates the Travis CI setup for integration testing. Using Vagrant allows all contributors to test on the same platform and avoid false test failures due to untested or incompatible docker versions.
 
 1. Install [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/).
-2. Run `vagrant up` from the same directory as the Vagrantfile in this repository.
-3. SSH into the VM with: `vagrant ssh`
-4. Run tests with `make`.
+1. Run `vagrant up` from the same directory as the Vagrantfile in this repository.
+1. SSH into the VM with: `vagrant ssh`
+1. Run tests with `make`.
 
-#### Testing with Docker and inspec
-```
+### Testing with Docker and inspec
+
+```bash
 make -C /vagrant xenial64 test
 ```
+
 See `make help` for more information including a full list of available targets.
 
 ## Example Playbook
@@ -74,4 +82,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-## Disclaimer

@@ -1,6 +1,6 @@
 BOXES := $(notdir $(wildcard docker/*))
 
-PLAYBOOK        ?= example
+PLAYBOOK        ?= tests
 
 define USAGE
 targets:
@@ -23,7 +23,7 @@ machines:
 
 variables:
 
-  PLAYBOOK          Choose Playbook to test. Default: 'example'.
+  PLAYBOOK          Choose Playbook to test. Default: 'tests'.
 endef
 
 is_machine_target = $(if $(findstring $(firstword $(MAKECMDGOALS)),$(BOXES)),true,false)
@@ -33,9 +33,9 @@ all:
 
 clean:
 ifeq (true,$(call is_machine_target))
-	docker rmi -f ansibleexample_$(firstword $(MAKECMDGOALS))
+	docker rmi -f ansibletests_$(firstword $(MAKECMDGOALS))
 else
-	-docker images -q ansibleexample* | xargs docker rmi -f
+	-docker images -q ansibletests* | xargs docker rmi -f
 endif
 
 help:
@@ -58,7 +58,7 @@ endif
 $(BOXES):
 # Don't build an image just to delete it.
 ifeq (,$(findstring clean,$(lastword $(MAKECMDGOALS))))
-	{ docker images ansibleexample_$@ | grep $@; } && exit || docker-compose build $@
+	{ docker images ansibletests_$@ | grep $@; } && exit || docker-compose build $@
 endif
 
 .PHONY: all \
