@@ -9,7 +9,7 @@ VAGRANTFILE_API_VERSION = "2"
 $setupScript = <<SCRIPT
 echo provisioning docker...
 sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common bash-completion
 sudo apt-get install python3-pip -y && sudo pip3 install --upgrade pip && sudo pip install pyyaml
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \

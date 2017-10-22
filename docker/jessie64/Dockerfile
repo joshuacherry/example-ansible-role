@@ -23,7 +23,7 @@ RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /e
     && apt-key add /tmp/chef.asc \
     && apt-get update -y \
     && apt-get --no-install-recommends install -y \
-      ansible \
+      ansible=2.4.0.0-1* \
       git \
       sudo \
       inspec=1.25.0-1 \

@@ -1,4 +1,8 @@
 ---
+# Variable configuration.
+- include_tasks: variables.yml
+  static: no
+
 - name: create nginx yum repo if OS family is RedHat
   copy: src=nginx.repo dest=/etc/yum.repos.d/
         owner=root group=root mode=0644
@@ -17,3 +21,7 @@
   notify:
     - restart Service
     - enable Service
+
+- debug:
+    msg: "test_variable: {{ item }}"
+  with_items: "{{ test_variable }}"
