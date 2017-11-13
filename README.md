@@ -1,8 +1,9 @@
 # example-ansible-inspec
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-inspec.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-inspec)
+
+Configures [something](https://google.com/) on a server. More info here.
 
 ## Requirements
 
@@ -10,9 +11,9 @@
 
 ## Install
 
-```bash
-install instructions here
-```
+### Install from GitHub
+
+`ansible-galaxy install git+https://github.com/joshuacherry/example-ansible-inspec.git`
 
 ## Features
 
@@ -31,14 +32,13 @@ install instructions here
 
 [Semantic Versioning](http://semver.org/)
 
+For the versions available, see the [tags on this repository](https://github.com/joshuacherry/example-ansible-inspec/tags).
+
+Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
+
 ## Role variables
 
-The following variable defaults are defined in `defaults/main.yml`.
-
-`variable1`
-Description
-
-## Contributing
+Look to the [defaults](defaults/main.yml) properties file to see the possible configuration properties.
 
 ## Testing
 
@@ -59,26 +59,12 @@ See `make help` for more information including a full list of available targets.
 
 ## Example Playbook
 
-## License
+```yaml
+---
+- name: Playbook for example-ansible-inspec
+  hosts: all
 
-The MIT License (MIT)
-
-Copyright (c) 2017 Joshua Cherry
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+  tasks:
+  - include_role:
+      name: example-ansible-inspec
+```
