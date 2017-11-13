@@ -2,12 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-inspec.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-inspec)
+![Ansible](https://img.shields.io/badge/ansible-2.4.1.0-green.svg)
 
 Configures [something](https://google.com/) on a server. More info here.
 
 ## Requirements
 
-- none
+- Ansible >= 2.4.1.0
 
 ## Install
 

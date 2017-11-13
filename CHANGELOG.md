@@ -13,3 +13,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 | Removed       | for now removed features.              |
 | Fixed         | for any bug fixes.                     |
 | Security      | in case of vulnerabilities.            |
+
+## [Unreleased]
+
+## [1.0.3] - 2017-11-13
+
+### Added
+
+- Added Changelog
+
+### Changed
+
+- Updated Readme with Ansible version requirement
+- Renamed license file
+
+[Unreleased]: https://github.com/joshuacherry/ansible-examples/compare/1.0.3...HEAD
+[1.0.3]: https://github.com/joshuacherry/ansible-examples/compare/1.0.2...1.0.3
