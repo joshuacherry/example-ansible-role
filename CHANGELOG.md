@@ -27,5 +27,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Updated Readme with Ansible version requirement
 - Renamed license file
 
-[Unreleased]: https://github.com/joshuacherry/ansible-examples/compare/1.0.3...HEAD
-[1.0.3]: https://github.com/joshuacherry/ansible-examples/compare/1.0.2...1.0.3
+[Unreleased]: https://github.com/joshuacherry/example-ansible-inspec/compare/1.0.3...HEAD
+[1.0.3]: https://github.com/joshuacherry/example-ansible-inspec/compare/1.0.2...1.0.3
