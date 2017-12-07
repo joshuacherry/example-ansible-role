@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Vagrant private_network with dhcp
 - Vagrant mount options to support macs and executable files
 
+### Changed
+
+- Ansible Version changed to 2.4.2.0
+
 ## [1.0.3] - 2017-11-13
 
 ### Added

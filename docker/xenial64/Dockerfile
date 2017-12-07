@@ -1,6 +1,6 @@
 # vim: set ft=dockerfile:
 
-FROM ubuntu:xenial-20160713
+FROM ubuntu:16.04
 
 # Colour output.
 ENV TERM=xterm
@@ -18,7 +18,7 @@ RUN apt-key add /tmp/chef.asc \
     && apt-add-repository ppa:ansible/ansible \
     && apt-get update -y \
     && apt-get --no-install-recommends install -y \
-        ansible=2.4.1.0-1* \
+        ansible=2.4.2.0-1* \
         git \
         sudo \
         inspec=1.43.5-1 \

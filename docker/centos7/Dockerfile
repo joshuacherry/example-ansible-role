@@ -1,9 +1,9 @@
-FROM centos:7.2.1511
+FROM centos:7
 
 ENV TERM=xterm
 
 RUN yum install -y --enablerepo=extras epel-release wget \ 
-    && wget -O /tmp/ansible.rpm https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.4.1.0-1.el7.ans.noarch.rpm \
+    && wget -O /tmp/ansible.rpm https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.4.2.0-1.el7.ans.noarch.rpm \
     && yum install -y /tmp/ansible.rpm \
     && rm /tmp/ansible.rpm \
     && yum clean all
