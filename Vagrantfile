@@ -36,9 +36,12 @@ SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "bento/ubuntu-16.04"
+  config.vm.synced_folder ".", "/vagrant",
+    owner: "vagrant", group: "vagrant",
+    mount_options: ["dmode=777,fmode=777"]
   config.vm.define "server" do |host|
     host.vm.hostname = "server"
-    host.vm.network "forwarded_port", guest: 8002, host: 8002
+    config.vm.network "private_network", type: "dhcp"
     host.vm.provider "virtualbox" do |vb|
       vb.memory = "1024"
       vb.cpus = "1"
