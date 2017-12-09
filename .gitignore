@@ -1,2 +1,6 @@
 .vagrant/*
 *.retry
+*pyc
+.cache
+__pycache__
+.molecule

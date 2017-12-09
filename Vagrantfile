@@ -5,6 +5,7 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
+ROOT_FOLDER = File.basename(__dir__)
 
 $setupScript = <<SCRIPT
 echo provisioning docker...
@@ -23,10 +24,13 @@ apt-get -y -o Dpkg::Options::="--force-confold" install ansible
 sudo apt-get -o Dpkg::Options::="--force-confnew" install --force-yes -y docker-ce="17.03.1~ce-0~ubuntu-xenial"
 sudo usermod -a -G docker vagrant
 sudo pip install docker-compose==1.13.0
+sudo pip install molecule
 
 docker version
 
 docker-compose version
+
+molecule --version
 echo "###########################################"
 echo "#                IP ADDRESS               #"
 echo "#                                         #"
@@ -36,9 +40,9 @@ SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "bento/ubuntu-16.04"
-  config.vm.synced_folder ".", "/vagrant",
-    owner: "vagrant", group: "vagrant",
-    mount_options: ["dmode=777,fmode=777"]
+  config.vm.synced_folder ".", "/"+ROOT_FOLDER,
+  owner: "vagrant", group: "vagrant",
+  mount_options: ["dmode=777,fmode=777"]
   config.vm.define "server" do |host|
     host.vm.hostname = "server"
     config.vm.network "private_network", type: "dhcp"

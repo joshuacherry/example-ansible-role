@@ -1,7 +1,0 @@
----
-- name: wrapper playbook for testing
-  hosts: all
-  
-  tasks:
-  - include_role:
-      name: role_under_test

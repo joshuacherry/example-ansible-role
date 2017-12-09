@@ -1,20 +1,20 @@
-# example-ansible-inspec
+# example-ansible-role
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/joshuacherry/example-ansible-inspec.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-inspec)
-![Ansible](https://img.shields.io/badge/ansible-2.4.2.0-green.svg)
+[![Build Status](https://travis-ci.org/joshuacherry/example-ansible-role.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-role)
+![Ansible](https://img.shields.io/badge/ansible-2.4-green.svg)
 
 Configures [something](https://google.com/) on a server. More info here.
 
 ## Requirements
 
-- Ansible >= 2.4.2.0
+- Ansible >= 2.4
 
 ## Install
 
 ### Install from GitHub
 
-`ansible-galaxy install git+https://github.com/joshuacherry/example-ansible-inspec.git`
+`ansible-galaxy install git+https://github.com/joshuacherry/example-ansible-role.git`
 
 ## Features
 
@@ -23,7 +23,6 @@ Configures [something](https://google.com/) on a server. More info here.
 
 | OS            | Option 1      |
 | :------------ | :-----------: |
-| Debian 8      | ✓             |
 | Ubuntu 16.04  | ✓             |
 | Centos 7      | ✓             |
 
@@ -33,7 +32,7 @@ Configures [something](https://google.com/) on a server. More info here.
 
 [Semantic Versioning](http://semver.org/)
 
-For the versions available, see the [tags on this repository](https://github.com/joshuacherry/example-ansible-inspec/tags).
+For the versions available, see the [tags on this repository](https://github.com/joshuacherry/example-ansible-role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -48,24 +47,38 @@ This role includes a Vagrantfile used with a Docker-based test harness that appr
 1. Install [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/).
 1. Run `vagrant up` from the same directory as the Vagrantfile in this repository.
 1. SSH into the VM with: `vagrant ssh`
-1. Run tests with `make`.
+1. Run tests with `molecule`.
 
-### Testing with Docker and inspec
+### Testing with Docker and molecule
 
 ```bash
-make -C /vagrant xenial64 test
+cd /example-ansible-role
+molecule test
 ```
 
-See `make help` for more information including a full list of available targets.
+See `molecule` for more information including a full list of available commands.
+
+### interactive debugging
+
+You can use log into a docker image created by molecule for interactive testing with the below commands.
+
+```bash
+cd /example-ansible-role
+molecule converge
+# Ubuntu
+docker exec -it ubuntu /bin/bash
+# CentOS
+docker exec -it centos /bin/bash
+```
 
 ## Example Playbook
 
 ```yaml
 ---
-- name: Playbook for example-ansible-inspec
+- name: Playbook for example-ansible-role
   hosts: all
 
   tasks:
   - include_role:
-      name: example-ansible-inspec
+      name: example-ansible-role
 ```

@@ -1,27 +1,31 @@
 ---
 # Variable configuration.
 - include_tasks: variables.yml
-  static: no
+  static: "no"
 
 - name: create nginx yum repo if OS family is RedHat
   copy: src=nginx.repo dest=/etc/yum.repos.d/
         owner=root group=root mode=0644
   when: (ansible_os_family == "RedHat" and ansible_distribution_major_version == "7")
 
-- name: ensure nginx is at the latest version if OS family is RedHat
-  yum: name=nginx state=latest
+- name: ensure nginx is installed if OS family is RedHat
+  yum:
+    name: nginx
+    state: present
   when: ansible_os_family == "RedHat"
   notify:
     - restart Service
     - enable Service
 
-- name: ensure nginx is at the latest version if OS family is Debian
-  apt: name=nginx state=latest
+- name: ensure nginx is installed if OS family is Debian
+  apt:
+    name: nginx
+    state: present
+    update_cache: "yes"
   when: ansible_os_family == "Debian"
   notify:
     - restart Service
     - enable Service
 
 - debug:
-    msg: "test_variable: {{ item }}"
-  with_items: "{{ test_variable }}"
+    var: test_variable
