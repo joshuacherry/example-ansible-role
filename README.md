@@ -49,6 +49,15 @@ This role includes a Vagrantfile used with a Docker-based test harness that appr
 1. SSH into the VM with: `vagrant ssh`
 1. Run tests with `molecule`.
 
+### Testing with Docker and tox
+
+Tox will test against the configured dependencies in [tox.ini](tox.ini). This allows you to test the role against multiple version of ansible, molecule, python, and more. Once the dependencies are set, tox will run the same molecule command to test code.
+
+```bash
+cd /example-ansible-role
+tox
+```
+
 ### Testing with Docker and molecule
 
 ```bash

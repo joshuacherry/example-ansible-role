@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.0] - 2018-01-18
+
+### Added
+
+- tox testing
+
 ## [2.0.0] - 2017-12-08
 
 ### Added
@@ -46,6 +52,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Updated Readme with Ansible version requirement
 - Renamed license file
 
-[Unreleased]: https://github.com/joshuacherry/example-ansible-role/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/joshuacherry/example-ansible-role/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/joshuacherry/example-ansible-role/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/joshuacherry/example-ansible-role/compare/1.0.3...2.0.0
 [1.0.3]: https://github.com/joshuacherry/example-ansible-role/compare/1.0.2...1.0.3

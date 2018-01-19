@@ -21,10 +21,11 @@ apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 apt-get -y -o Dpkg::Options::="--force-confold" install ansible
 # Show available version apt-cache madison docker-ce
-sudo apt-get -o Dpkg::Options::="--force-confnew" install --force-yes -y docker-ce="17.03.1~ce-0~ubuntu-xenial"
+sudo apt-get -o Dpkg::Options::="--force-confnew" install --force-yes -y docker-ce="17.03.1~ce-0~ubuntu-xenial" python-dev
 sudo usermod -a -G docker vagrant
-sudo pip install docker-compose==1.13.0
+sudo pip install docker-compose
 sudo pip install molecule
+sudo pip install tox
 
 docker version
 
