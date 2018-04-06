@@ -17,15 +17,21 @@ sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
-apt-add-repository -y ppa:ansible/ansible
+#####apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
-apt-get -y -o Dpkg::Options::="--force-confold" install ansible
+#####apt-get -y -o Dpkg::Options::="--force-confold" install ansible
 # Show available version apt-cache madison docker-ce
-sudo apt-get -o Dpkg::Options::="--force-confnew" install --force-yes -y docker-ce="17.03.1~ce-0~ubuntu-xenial" python-dev
+sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce="18.03.0~ce-0~ubuntu" python-dev
 sudo usermod -a -G docker vagrant
+sudo pip install ansible
 sudo pip install docker-compose
 sudo pip install molecule
 sudo pip install tox
+sudo pip install testinfra --upgrade
+
+# Limit version as workaround for: https://github.com/ansible/ansible/issues/35612
+# Keep docker<3.0
+sudo pip install 'docker<3.0.0'
 
 docker version
 

@@ -3,5 +3,6 @@
 *pyc
 .cache
 __pycache__
+.pytest_cache
 .molecule
 .tox
