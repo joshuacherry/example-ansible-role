@@ -2,13 +2,17 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-role.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-role)
-![Ansible](https://img.shields.io/badge/ansible-2.4-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.4.3.0-blue.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.5.0-blue.svg)
 
 Configures [something](https://google.com/) on a server. More info here.
 
 ## Requirements
 
-- Ansible >= 2.4
+- Ansible
+  - Tested Versions:
+    - 2.4.3.0
+    - 2.5.0
 
 ## Install
 

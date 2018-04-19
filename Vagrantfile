@@ -23,15 +23,12 @@ sudo apt-get update
 # Show available version apt-cache madison docker-ce
 sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce="18.03.0~ce-0~ubuntu" python-dev
 sudo usermod -a -G docker vagrant
-sudo pip install ansible
-sudo pip install docker-compose
+sudo pip install testinfra
+sudo pip install 'ansible==2.5.0'
+# Limit docker version <3.0 as workaround for: https://github.com/ansible/ansible/issues/35612
+sudo pip install 'docker-compose<1.19'
 sudo pip install molecule
 sudo pip install tox
-sudo pip install testinfra --upgrade
-
-# Limit version as workaround for: https://github.com/ansible/ansible/issues/35612
-# Keep docker<3.0
-sudo pip install 'docker<3.0.0'
 
 docker version
 
