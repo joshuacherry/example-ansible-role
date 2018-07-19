@@ -16,6 +16,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.3] - 2018-07-17
+
+### Changed
+
+- Added Ansible 2.6 tests in tox
+- Fixed Vagrantfile pip2 & pip3 install
+
 ## [2.1.2] - 2018-04-19
 
 ### Changed
@@ -78,7 +85,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Updated Readme with Ansible version requirement
 - Renamed license file
 
-[Unreleased]: https://github.com/joshuacherry/example-ansible-role/compare/2.1.2...HEAD
+[Unreleased]: https://github.com/joshuacherry/example-ansible-role/compare/2.1.3...HEAD
+[2.1.3]: https://github.com/joshuacherry/example-ansible-role/compare/2.1.2...2.1.3
 [2.1.2]: https://github.com/joshuacherry/example-ansible-role/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/joshuacherry/example-ansible-role/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/joshuacherry/example-ansible-role/compare/2.0.0...2.1.0

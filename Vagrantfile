@@ -11,16 +11,14 @@ $setupScript = <<SCRIPT
 echo provisioning docker...
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common bash-completion
-sudo apt-get install python-pip -y && sudo pip install --upgrade pip
-sudo apt-get install python3-pip -y && sudo pip3 install --upgrade pip && sudo pip install pyyaml
+sudo apt-get install python3-pip -y && sudo pip3 install --upgrade pip && sudo pip3 install pyyaml
+sudo apt-get install python-pip -y && sudo pip2 install --upgrade pip && sudo pip2 install pyyaml
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
-#####apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
-#####apt-get -y -o Dpkg::Options::="--force-confold" install ansible
 # Show available version apt-cache madison docker-ce
 sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce="18.03.0~ce-0~ubuntu" python-dev
 sudo usermod -a -G docker vagrant
