@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-role.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-role)
-![Ansible](https://img.shields.io/badge/ansible-2.4.3.0-blue.svg)
 ![Ansible](https://img.shields.io/badge/ansible-2.5.0-blue.svg)
 
 Configures [something](https://google.com/) on a server. More info here.
@@ -38,7 +37,7 @@ Configures [something](https://google.com/) on a server. More info here.
 
 For the versions available, see the [tags on this repository](https://github.com/joshuacherry/example-ansible-role/tags).
 
-Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
+Additionally you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
 ## Role variables
 

@@ -1,0 +1,5 @@
+---
+# From GitHUb, overriding the name and specifying a tag
+- src: https://github.com/joshuacherry/ansible-role-apache.git
+  version: master
+  name: apache
