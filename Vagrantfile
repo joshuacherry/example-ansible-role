@@ -23,9 +23,8 @@ sudo apt-get update
 sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce="18.03.0~ce-0~ubuntu" python-dev
 sudo usermod -a -G docker vagrant
 sudo pip2 install testinfra
-sudo pip2 install 'ansible==2.5.0'
-# Limit docker version <3.0 as workaround for: https://github.com/ansible/ansible/issues/35612
-sudo pip2 install 'docker-compose<1.19'
+sudo pip2 install ansible
+sudo pip2 install docker-compose
 sudo pip2 install molecule
 sudo pip2 install tox
 

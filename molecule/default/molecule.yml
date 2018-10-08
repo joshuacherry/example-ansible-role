@@ -10,7 +10,7 @@ lint:
 platforms:
   - name: instance
     image: joshuacherry/docker-${MOLECULE_DISTRO:-ubuntu1604}-ansible
-    command: ${MOLECULE_DOCKER_COMMAND:-"sleep infinity"}
+    command: ${MOLECULE_DOCKER_COMMAND:-"/lib/systemd/systemd"}
     privileged: true
     pre_build_image: true
     volumes:
