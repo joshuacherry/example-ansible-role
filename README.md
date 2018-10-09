@@ -62,7 +62,7 @@ This molecule configuration depends on docker images from [https://hub.docker.co
 
 Tox will test against the configured dependencies in [tox.ini](tox.ini). This allows you to test the role against multiple version of ansible, molecule, python, and more. Once the dependencies are set, tox will run the same molecule command to test code.
 
-Due to how Virtualbox shares folders with Windows, it is recommended to copy the role into a local directory before running tox, otherwise the python environments will perform significantly slower. Run the below commands each time you make a change to the source code and need to test against all scenarios defined in [tox.ini](tox.ini)
+Due to how Virtualbox mounts shared folders, it is recommended to copy the role into a local directory within the virtual machine before running tox, otherwise the python environments will perform significantly slower. Run the below commands each time you make a change to the source code and need to test against all scenarios defined in [tox.ini](tox.ini)
 
 ```bash
 rsync -ua /example-ansible-role/ ~/example-ansible-role/ --delete

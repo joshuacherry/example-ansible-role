@@ -20,7 +20,7 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 # Show available version apt-cache madison docker-ce
-sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce="18.03.0~ce-0~ubuntu" python-dev
+sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce python-dev
 sudo usermod -a -G docker vagrant
 sudo pip2 install testinfra
 sudo pip2 install ansible
@@ -49,8 +49,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     host.vm.hostname = "server"
     config.vm.network "private_network", type: "dhcp"
     host.vm.provider "virtualbox" do |vb|
-      vb.memory = "1024"
-      vb.cpus = "1"
+      vb.memory = "2048"
+      vb.cpus = "2"
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
