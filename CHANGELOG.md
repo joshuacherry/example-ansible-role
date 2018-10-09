@@ -16,6 +16,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.2.0] - 2018-10-8
+
+### Added
+
+- Added testing of requirements.yml for other roles
+
+### Changed
+
+- Travis now uses a matrix of tests for each tox scenario
+- Moved .yamllint into molecule scenario
+- Updated README
+- Changed Vagrantfile to use most recent ansible and docker-compose
+- Molecule default scenario will build platforms based on environmental variables set in tox ( MOLECULE_DISTRO & MOLECULE_DOCKER_COMMAND )
+- Updated Tox to test multiple operating systems and ansible versions
+
+### Removed
+
+- Removed building docker container within repository
+- Removed static molecule create/destroy/prepare files
+
 ## [2.1.3] - 2018-07-17
 
 ### Changed
