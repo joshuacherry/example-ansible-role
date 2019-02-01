@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-role.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-role)
-![Ansible](https://img.shields.io/badge/ansible-2.5.0-blue.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.6.1-blue.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.7.0-blue.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.5-blue.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.6-blue.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.7-blue.svg)
 
 Configures [something](https://google.com/) on a server. More info here.
 
@@ -12,9 +12,9 @@ Configures [something](https://google.com/) on a server. More info here.
 
 - Ansible
   - Tested Versions:
-    - 2.5.0
-    - 2.6.1
-    - 2.7.0
+    - 2.5
+    - 2.6
+    - 2.7
 
 ## Install
 

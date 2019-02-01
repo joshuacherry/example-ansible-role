@@ -1,11 +1,12 @@
 ---
 language: python
 sudo: required
+dist: xenial
 services:
   - docker
 
 python:
-  - 2.7
+  - 3.7
 
 matrix:
   fast_finish: true
