@@ -95,7 +95,7 @@ docker exec -it instance /bin/bash
 
 | OS            | MOLECULE_DISTRO | MOLECULE_DOCKER_COMMAND  |
 | :------------ | :-------------: | :----------------------- |
-| Ubuntu 16.04  | ubuntu1804      | /lib/systemd/systemd     |
+| Ubuntu 16.04  | ubuntu1604      | /lib/systemd/systemd     |
 | ubuntu 18.04  | ubuntu1804      | /lib/systemd/systemd     |
 | Centos 7      | centos7         | /usr/lib/systemd/systemd |
 
