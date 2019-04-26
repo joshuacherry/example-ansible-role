@@ -1,0 +1,58 @@
+---
+# YAML schema reference
+# https://aka.ms/yaml
+
+trigger:
+  - master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+strategy:
+  matrix:
+    Ansible_2.5_Ubuntu16:
+      ANSIBLE: 2.5
+      OS: ubuntu1604
+    Ansible_2.6_Ubuntu16:
+      ANSIBLE: 2.6
+      OS: ubuntu1604
+    Ansible_2.7_Ubuntu16:
+      ANSIBLE: 2.7
+      OS: ubuntu1604
+    Ansible_2.5_Ubuntu18:
+      ANSIBLE: 2.5
+      OS: ubuntu1804
+    Ansible_2.6_Ubuntu18:
+      ANSIBLE: 2.6
+      OS: ubuntu1804
+    Ansible_2.7_Ubuntu18:
+      ANSIBLE: 2.7
+      OS: ubuntu1804
+    Ansible_2.5_centos7:
+      ANSIBLE: 2.5
+      OS: centos7
+    Ansible_2.6_centos7:
+      ANSIBLE: 2.6
+      OS: centos7
+    Ansible_2.7_centos7:
+      ANSIBLE: 2.7
+      OS: centos7
+  maxParallel: 3
+
+variables:
+  TOXENV: 'py37-ansible$(ANSIBLE)-$(OS)'
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.7'
+      architecture: 'x64'
+  - script: sudo apt-get -qq update
+    displayName: 'Update Apt'
+  - script: |
+      pip install docker-py
+      pip install molecule
+      pip install tox
+    displayName: 'Install dependencies'
+  - script: tox -e $(TOXENV)
+    displayName: 'Run Tox Tests'

@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Tests now include Azure Pipelines
+
 ## [3.0.2] - 2019-02-05
 
 ### Fixed
