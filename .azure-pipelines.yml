@@ -37,7 +37,6 @@ strategy:
     Ansible_2.7_centos7:
       ANSIBLE: 2.7
       OS: centos7
-  maxParallel: 3
 
 variables:
   TOXENV: 'py37-ansible$(ANSIBLE)-$(OS)'
