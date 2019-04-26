@@ -14,4 +14,4 @@
       when: ansible_distribution == 'Ubuntu'
 
   roles:
-    - role: example-ansible-role
+    - role: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
