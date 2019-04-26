@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-role.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-role)
+[![Build Status](https://dev.azure.com/cherrj2/example-ansible-role/_apis/build/status/joshuacherry.example-ansible-role?branchName=master)](https://dev.azure.com/cherrj2/example-ansible-role/_build/latest?definitionId=1&branchName=master)
 ![Ansible](https://img.shields.io/badge/ansible-2.5-blue.svg)
 ![Ansible](https://img.shields.io/badge/ansible-2.6-blue.svg)
 ![Ansible](https://img.shields.io/badge/ansible-2.7-blue.svg)
