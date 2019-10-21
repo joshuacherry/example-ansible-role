@@ -34,17 +34,15 @@ sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce
 
 echo -e "\n#########################################\n## Install Packages with pip ##\n#########################################\n"
 sudo pip install --upgrade \
-  ansible=="2.7.*" \
-  docker=="3.6.*"   \
-  six=="1.11.*"              \
+  ansible=="2.8.*" \
+  docker=="4.1.*"  \
+  six=="1.12.*"    \
   molecule         \
   tox
 
 sudo usermod -a -G docker vagrant
 
 docker version
-
-docker-compose version
 
 molecule --version
 

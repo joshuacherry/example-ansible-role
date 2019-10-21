@@ -1,7 +1,6 @@
 ---
 # Variable configuration.
 - include_tasks: variables.yml
-  static: "no"
 
 - name: create nginx yum repo if OS family is RedHat
   copy: src=nginx.repo dest=/etc/yum.repos.d/

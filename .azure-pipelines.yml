@@ -19,6 +19,9 @@ strategy:
     Ansible_2.7_Ubuntu16:
       ANSIBLE: 2.7
       OS: ubuntu1604
+    Ansible_2.8_Ubuntu16:
+      ANSIBLE: 2.8
+      OS: ubuntu1604
     Ansible_2.5_Ubuntu18:
       ANSIBLE: 2.5
       OS: ubuntu1804
@@ -28,6 +31,9 @@ strategy:
     Ansible_2.7_Ubuntu18:
       ANSIBLE: 2.7
       OS: ubuntu1804
+    Ansible_2.8_Ubuntu18:
+      ANSIBLE: 2.8
+      OS: ubuntu1804
     Ansible_2.5_centos7:
       ANSIBLE: 2.5
       OS: centos7
@@ -36,6 +42,9 @@ strategy:
       OS: centos7
     Ansible_2.7_centos7:
       ANSIBLE: 2.7
+      OS: centos7
+    Ansible_2.8_centos7:
+      ANSIBLE: 2.8
       OS: centos7
 
 variables:
