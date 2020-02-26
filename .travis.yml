@@ -30,5 +30,7 @@ install:
   - pip install tox-travis
   - pip install docker-py
   - pip install molecule
+  - pip install ansible-lint
+  - pip install flake8
 script:
   - tox

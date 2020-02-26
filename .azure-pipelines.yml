@@ -49,6 +49,8 @@ steps:
       pip install docker-py
       pip install molecule
       pip install tox
+      pip install ansible-lint
+      pip install flake8
     displayName: 'Install dependencies'
   - script: tox -e $(TOXENV)
     displayName: 'Run Tox Tests'
