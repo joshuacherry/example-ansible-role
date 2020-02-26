@@ -10,50 +10,38 @@ pool:
 
 strategy:
   matrix:
-    Ansible_2.5_Ubuntu16:
-      ANSIBLE: 2.5
-      OS: ubuntu1604
-    Ansible_2.6_Ubuntu16:
-      ANSIBLE: 2.6
-      OS: ubuntu1604
-    Ansible_2.7_Ubuntu16:
-      ANSIBLE: 2.7
-      OS: ubuntu1604
     Ansible_2.8_Ubuntu16:
       ANSIBLE: 2.8
       OS: ubuntu1604
-    Ansible_2.5_Ubuntu18:
-      ANSIBLE: 2.5
-      OS: ubuntu1804
-    Ansible_2.6_Ubuntu18:
-      ANSIBLE: 2.6
-      OS: ubuntu1804
-    Ansible_2.7_Ubuntu18:
-      ANSIBLE: 2.7
-      OS: ubuntu1804
+    Ansible_2.9_Ubuntu16:
+      ANSIBLE: 2.9
+      OS: ubuntu1604
     Ansible_2.8_Ubuntu18:
       ANSIBLE: 2.8
       OS: ubuntu1804
-    Ansible_2.5_centos7:
-      ANSIBLE: 2.5
-      OS: centos7
-    Ansible_2.6_centos7:
-      ANSIBLE: 2.6
-      OS: centos7
-    Ansible_2.7_centos7:
-      ANSIBLE: 2.7
-      OS: centos7
+    Ansible_2.9_Ubuntu18:
+      ANSIBLE: 2.9
+      OS: ubuntu1804
     Ansible_2.8_centos7:
       ANSIBLE: 2.8
       OS: centos7
+    Ansible_2.9_centos7:
+      ANSIBLE: 2.9
+      OS: centos7
+    Ansible_2.8_centos8:
+      ANSIBLE: 2.8
+      OS: centos8
+    Ansible_2.9_centos8:
+      ANSIBLE: 2.9
+      OS: centos8
 
 variables:
-  TOXENV: 'py37-ansible$(ANSIBLE)-$(OS)'
+  TOXENV: 'py38-ansible$(ANSIBLE)-$(OS)'
 
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.7'
+      versionSpec: '3.8'
       architecture: 'x64'
   - script: sudo apt-get -qq update
     displayName: 'Update Apt'

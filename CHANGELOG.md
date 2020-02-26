@@ -16,9 +16,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [4.0.0] - 2020-02-26
+
 ### Added
 
 - Tests now include Azure Pipelines
+- Support for Centos 8
+- Support for Ansible 2.9
+
+### Changed
+
+- Python 3.7 to 3.8
+
+### Removed
+
+- Python 3.7 support
+- Ansible 2.5, 2.6, and 2.7 support
 
 ## [3.0.2] - 2019-02-05
 
@@ -131,7 +144,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Updated Readme with Ansible version requirement
 - Renamed license file
 
-[Unreleased]: https://github.com/joshuacherry/example-ansible-role/compare/3.0.2...HEAD
+[Unreleased]: https://github.com/joshuacherry/example-ansible-role/compare/4.0.0...HEAD
+[4.0.0]: https://github.com/joshuacherry/example-ansible-role/compare/3.0.2...4.0.0
 [3.0.2]: https://github.com/joshuacherry/example-ansible-role/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/joshuacherry/example-ansible-role/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/joshuacherry/example-ansible-role/compare/2.2.0...3.0.0

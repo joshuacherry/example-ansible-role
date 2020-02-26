@@ -3,9 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/joshuacherry/example-ansible-role.svg?branch=master)](https://travis-ci.org/joshuacherry/example-ansible-role)
 [![Build Status](https://dev.azure.com/cherrj2/example-ansible-role/_apis/build/status/joshuacherry.example-ansible-role?branchName=master)](https://dev.azure.com/cherrj2/example-ansible-role/_build/latest?definitionId=1&branchName=master)
-![Ansible](https://img.shields.io/badge/ansible-2.5-blue.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.6-blue.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.7-blue.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8-blue.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.9-blue.svg)
 
 Configures [something](https://google.com/) on a server. More info here.
 
@@ -13,9 +12,8 @@ Configures [something](https://google.com/) on a server. More info here.
 
 - Ansible
   - Tested Versions:
-    - 2.5
-    - 2.6
-    - 2.7
+    - 2.8
+    - 2.9
 
 ## Install
 
@@ -33,6 +31,7 @@ Configures [something](https://google.com/) on a server. More info here.
 | Ubuntu 16.04  | ✓             |
 | ubuntu 18.04  | ✓             |
 | Centos 7      | ✓             |
+| Centos 8      | ✓             |
 
 - something 3
 
@@ -99,6 +98,7 @@ docker exec -it instance /bin/bash
 | Ubuntu 16.04  | ubuntu1604      | /lib/systemd/systemd     |
 | ubuntu 18.04  | ubuntu1804      | /lib/systemd/systemd     |
 | Centos 7      | centos7         | /usr/lib/systemd/systemd |
+| Centos 8      | centos8         | /usr/lib/systemd/systemd |
 
 ## Example Playbook
 

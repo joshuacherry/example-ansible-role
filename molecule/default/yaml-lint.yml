@@ -1,4 +1,7 @@
 ---
+ignore: |
+  .tox/
+
 extends: default
 rules:
   line-length:
