@@ -40,6 +40,7 @@ sudo pip install --upgrade \
   molecule         \
   ansible-lint     \
   flake8           \
+  testinfra        \
   tox
 
 sudo usermod -a -G docker vagrant
